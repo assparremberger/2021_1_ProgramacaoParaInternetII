@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>PI2 - Aula01</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        
+        <div id="div01">Adalto</div>
+        <script>
+            var div01 = document.getElementById("div01");
+            div01.innerHTML = "<i>Eu</i>";
+        </script>
+
+        <div id="div02"></div>
+        <button onmouseout="alterar()"  >Alterar</button>
+
+        <script>
+            
+            function alterar(){
+                var div02 = document.getElementById("div02");
+                div02.innerHTML = "<i>PI2</i>";
+            }
+        </script>
+
+
+<hr>
+
+        <input type="text" placeholder="Nome do produto" id="txtNome">
+        <button onclick="adicionar()">Adicionar</button> 
+        <div>Lista de Produtos</div>
+        <div id="divNomes"></div>
+
+        <script>
+            
+            function adicionar(){
+                var divNomes = document.getElementById("divNomes");
+                var txtNome = document.getElementById("txtNome");
+                var conteudo = divNomes.innerHTML + txtNome.value + "<br>";
+                divNomes.innerHTML = conteudo;
+                txtNome.value = "";
+            }
+            
+        </script>
+
+        
+    </body>
+</html>
+
