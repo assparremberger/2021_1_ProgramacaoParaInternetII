@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PI2 - Aula02</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+        </script>
+    </head>
+    <body>
+        <span id="spanErro"></span>
+        <form name="formCadastro" action="salvar.php" onsubmit="return validarCampo()" >
+            <input name="txtNome" type="text" placeholder="Digite o nome..." />
+            <input type="submit" value="Salvar" />
+        </form>
+
+        <script>
+            function validarCampo(){
+                var nome = document.forms["formCadastro"]["txtNome"].value;
+                if( nome == "" ){
+                    alert("O campo nome é obrigatório");
+               //     document.write("O campo nome é obrigatório - No documento");
+                    document.getElementById("spanErro").innerHTML = "O campo <i>nome</i> é obrigatório - innerHTML";
+                    console.log("O campo nome é obrigatório -  Console");
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+        </script>
+
+
+        <hr>
+
+        <input type="text" id="txtPessoa" placeholder="Nome:"/>
+        <input type="number" id="txtIdade" placeholder="Idade:"/>
+        <button onclick="salvarPessoa()">Salvar</button>
+        <script>
+            function salvarPessoa(){
+                var nomePessoa = document.getElementById("txtPessoa").value;
+                var idadePessoa = document.getElementById("txtIdade").value;
+                if( isNaN(idadePessoa) ){
+                    alert("O campo idade deve ser preenchido com números inteiros!");
+                }else{
+                    var pessoa = {  
+                        nome: nomePessoa, 
+                        idade: idadePessoa , 
+                        altura: 1.75, 
+                        temFilhos: true,
+                        imprimir: function(){
+                            alert( "Nome: " + this.nome + " Idade: " + this.idade + 
+                            " Altura: " + this.altura );
+                        }
+                    }
+                    alert("O nome da pessoa é: " + pessoa.nome);
+                    pessoa.imprimir();
+                }
+            }
+        </script>
+
+
+        <hr>
+
+        <p>Aqui temos um parágrafo</p>
+        <h1 id="titulo" >Aqui temos um título</h1>
+        <span class="meuSpan">Aqui temos um span</span>
+
+        <button id="btnEsconder">Mostrar/Esconder</button>
+
+        <script>
+            $("#btnEsconder").click( function(){
+                $("p").toggle();
+                $("#titulo").toggle();
+                $(".meuSpan").toggle();
+            });
+        </script>
+        
+        h1#titulo 
+
+    </body>
+</html>
