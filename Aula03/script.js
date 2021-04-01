@@ -27,7 +27,9 @@ function gerarNumeros() {
     };
 
     var valor = document.getElementById("txtValor").value;
-    http.open("GET", "servidor.php?valor=" + valor, true);
-    http.send();
+
+    http.open("POST", "servidor.php", true);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("valor=" + valor);
 
 }
