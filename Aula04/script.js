@@ -19,3 +19,31 @@ function lerJson() {
     http.open("GET", "meuJson.json", true);
     http.send();
 }
+
+
+function lerServidor() {
+    var http = new XMLHttpRequest();
+    http.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var objJSON = JSON.parse(this.responseText);
+            const produtos = objJSON.produtos;
+            conteudo = " <table border='1' >";
+            conteudo += "   <tr>";
+            conteudo += "       <th>Id</th>";
+            conteudo += "       <th>Nome</th>";
+            conteudo += "   </tr>";
+
+            produtos.forEach(prod => {
+                conteudo += "<tr>";
+                conteudo += "   <td>" + prod.id + "</td>";
+                conteudo += "   <td>" + prod.nome + "</td>";
+                conteudo += "</tr>";
+            });
+
+            conteudo += " </table>";
+            document.getElementById("divProdutos").innerHTML = conteudo;
+        }
+    };
+    http.open("GET", "servidor.php", true);
+    http.send();
+}
