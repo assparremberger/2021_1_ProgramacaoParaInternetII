@@ -1,0 +1,1 @@
+POST http://localhost:8001/produto?nome=Pepsi&preco=4.99&quantidade=50
